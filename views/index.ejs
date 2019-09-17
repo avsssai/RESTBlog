@@ -1,0 +1,37 @@
+<% include partials/header %>
+
+<div class="ui main text container">
+  <div class="ui huge header">
+    Welcome to Shiva's Blog.
+  </div>
+  <div class="ui top attached segment">
+    <div class="ui divided items">
+                <% blogs.forEach(blog=>{ %>
+
+            <div class="item">
+                    <div class="image">
+                                <img src="https://picsum.photos/200" alt="image URL" />
+
+                    </div>
+                    <div class="content">
+                            <a href="/blogs/<%= blog._id %>" class="header"><p><%= blog.title %></p>
+                            </a>
+                            <div class="meta">
+                                        <%= blog.created.toDateString() %>
+
+                            </div>
+                            <div class="description">
+                                        <%- blog.body.substring(0,100) %>...
+
+                            </div>
+                            <div class="extra">
+                                        <a class="ui black basic button" href="/blogs/<%= blog._id %>">Read More<i class="arrow alternate circle right icon text centered"></i></a>
+                            </div>
+                    </div>
+            </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<% include partials/footer %>
